@@ -19,8 +19,8 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/main.jpg") top right no-repeat;
-  background-size: cover;
+  background: #040404 url("../img/cover_img.jpg") top right no-repeat;
+  background-size: contain;
   left: 0;
   right: 0;
   top: 0;
