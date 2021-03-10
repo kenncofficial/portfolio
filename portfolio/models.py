@@ -37,6 +37,9 @@ class About(models.Model):
 	freelance= models.CharField(max_length=255)
 	bio_2 = RichTextField(blank=True, null=True)
 
+class Technology(models.Model):
+	software = models.CharField(max_length=255)
+
 class Intrest(models.Model):
 	name_of_intrests = models.CharField(max_length=255)
 

@@ -61,10 +61,10 @@
       </nav><!-- .navbar -->
 
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="{{ Home_Layout.twitter_url }}" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="{{ Home_Layout.facebook_url }}" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="{{ Home_Layout.instagram_url }}" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{ Home_Layout.github_url }}" class="linkedin"><i class="bi bi-github"></i></a>
       </div>
       {% endfor %}
     </div>
@@ -83,7 +83,7 @@
       {% for About in Abouts %}
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.jpg" class="img-fluid" alt="">
+          <img src="{% static 'portfolio/assets/img/mee.jpg' %}" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>{{ About.title }}</h3>
@@ -103,7 +103,7 @@
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span>{{ About.email }}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ About.email }}</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{ About.freelance }}</span></li>
               </ul>
             </div>
@@ -124,15 +124,15 @@
         <div class="col-lg-3 col-md-6">
           <div class="count-box">
             <i class="bi bi-emoji-smile"></i>
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Happy Clients</p>
+            <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Website Responsiveness (in %)</p>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
           <div class="count-box">
             <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
             <p>Projects</p>
           </div>
         </div>
@@ -140,16 +140,16 @@
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
           <div class="count-box">
             <i class="bi bi-headset"></i>
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hours Of Support</p>
+            <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Support (in %)</p>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
           <div class="count-box">
             <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Awards</p>
+            <span data-purecounter-start="0" data-purecounter-end="---" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Testimonials</p>
           </div>
         </div>
 
@@ -251,7 +251,7 @@
       {% endfor %}
     </div><!-- End Interests -->
 
-    <!-- ======= Testimonials ======= -->
+    <!-- ======= Testimonials ======= 
     <div class="testimonials container">
 
       <div class="section-title">
@@ -272,7 +272,7 @@
               <h3>Saul Goodman</h3>
               <h4>Ceo &amp; Founder</h4>
             </div>
-          </div><!-- End testimonial item -->
+          </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
@@ -285,7 +285,7 @@
               <h3>Sara Wilsson</h3>
               <h4>Designer</h4>
             </div>
-          </div><!-- End testimonial item -->
+          </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
@@ -298,7 +298,7 @@
               <h3>Jena Karlis</h3>
               <h4>Store Owner</h4>
             </div>
-          </div><!-- End testimonial item -->
+          </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
@@ -311,7 +311,7 @@
               <h3>Matt Brandon</h3>
               <h4>Freelancer</h4>
             </div>
-          </div><!-- End testimonial item -->
+          </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
@@ -324,7 +324,7 @@
               <h3>John Larson</h3>
               <h4>Entrepreneur</h4>
             </div>
-          </div><!-- End testimonial item -->
+          </div> 
 
         </div>
         <div class="swiper-pagination"></div>
@@ -334,7 +334,7 @@
 
       </div>
 
-    </div><!-- End Testimonials  -->
+    </div> End Testimonials  -->
 
   </section><!-- End About Section -->
 
@@ -385,7 +385,7 @@
       </div>
 
       <div class="row">
-        {% for service in services %}
+        {% for Service in Services %}
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
           <div class="icon-box">
             <div class="icon"><i class="bx bxl-dribbble"></i></div>
@@ -567,7 +567,7 @@
           <div class="info-box">
             <i class="bx bx-map"></i>
             <h3>My Address</h3>
-            <p>A108 Adam Street, New York, NY 535022</p>
+            <p>No.6 Oriebe street, Ozuoba, Port Harcourt</p>
           </div>
         </div>
 
@@ -576,11 +576,10 @@
             <i class="bx bx-share-alt"></i>
             <h3>Social Profiles</h3>
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+               <a href="{{ Home_Layout.twitter_url }}" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="{{ Home_Layout.facebook_url }}" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="{{ Home_Layout.instagram_url }}" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="{{ Home_Layout.github_url }}" class="linkedin"><i class="bi bi-github"></i></a>
             </div>
           </div>
         </div>
@@ -589,14 +588,14 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>Email Me</h3>
-            <p>contact@example.com</p>
+            <p>chinedken17@gmail.com</p>
           </div>
         </div>
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-phone-call"></i>
             <h3>Call Me</h3>
-            <p>+1 5589 55488 55</p>
+            <p>+2347057110490</p>
           </div>
         </div>
       </div>
@@ -633,7 +632,7 @@
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
     Copyright kenn.c_official. All rights reserved.<br />
-    Designed by <a href=''>Kenn.c_official</a>|<a href="https://bootstrapmade.com/">Bootstrapmade</a>
+    Designed by <a href=''>Kenn.c_official</a>
   </div>
 
   <!-- Vendor JS Files -->

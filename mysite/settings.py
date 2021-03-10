@@ -28,7 +28,7 @@ SECRET_KEY = 'o@dhzh+&i+0v1uz93b1x4nr9(0^j5h6(l89f==26=7m+yuxdmr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kennc.herokuapp.com',]
+ALLOWED_HOSTS = ['kennc.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
