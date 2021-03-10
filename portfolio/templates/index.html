@@ -92,7 +92,6 @@
               <ul>
                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ About.birthday}}</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{ About.website }}</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{ About.phone }}</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Language:</strong> <span>English</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Country:</strong> <span>Nigeria</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{ About.city }}</span></li>
@@ -351,7 +350,7 @@
           <div class="resume-item pb-0">
             <h4>{{ Resume.title }}</h4>
             <h5>{{ Resume.year }}</h5>
-            <p><em>{{ Resume.content }}</em></p>
+            <p><em>{{ Resume.content|safe }}</em></p>
           </div>
             {% endfor %}
           
@@ -359,11 +358,11 @@
 
         <div class="col-lg-6">
           {% for Experience in Experiences %}
-          <h3 class="resume-title">{{ Resume.title_tag }}</h3>
+          <h3 class="resume-title">{{ Experience.title_tag }}</h3>
           <div class="resume-item">
-            <h4>{{ Resume.title }}</h4>
-            <h5>{{ Resume.year }}</h5>
-            <p><em>{{ Resume.content }}</em></p>
+            <h4>{{ Experience.title }}</h4>
+            <h5>{{ Experience.year }}</h5>
+            <p><em>{{ Experience.content|safe }}</em></p>
           </div>
           {% endfor %}
         </div>
@@ -387,7 +386,7 @@
           <div class="icon-box">
             <div class="icon"><i class="bx bxl-dribbble"></i></div>
             <h4><a href="">{{ Service.title }}</a></h4>
-            <p>{{ Service.content }}</p>
+            <p>{{ Service.content|safe }}</p>
           </div>
         </div>
         {% endfor %}
