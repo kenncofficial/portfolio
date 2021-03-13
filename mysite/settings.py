@@ -107,6 +107,11 @@ LOGGING = {
         }
     }
 }
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
