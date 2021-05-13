@@ -15,6 +15,12 @@ import django_heroku
 import dj_database_url
 from decouple import config
 
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -173,5 +179,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+cloudinary.config( 
+  cloud_name = "dqedrkrmg",
+  api_key = "989358719448936", 
+  api_secret = "s4XgQlu_8ZmVb1HiUZYReJ4yhEc",
+)
+
 
 django_heroku.settings(locals())

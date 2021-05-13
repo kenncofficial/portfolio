@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from django.urls import reverse
 from datetime import datetime, date
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -74,7 +74,7 @@ class Portfolio_Post(models.Model):
 	client = models.CharField(max_length=255)
 	project_date = models.DateField(auto_now_add=True)
 	Discription = RichTextField(blank=True, null=True)
-	Image = models.ImageField(null=True, blank=True)
+	image = CloudinaryField('image', null=True, blank=True)
 	project_url = models.URLField(max_length=255, default='non given')
 
 	def self(self):

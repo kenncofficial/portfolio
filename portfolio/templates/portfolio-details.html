@@ -37,14 +37,14 @@
           <div class="col-lg-4 portfolio-info">
             <h3>Project information</h3>
             <ul>
-              <li><strong>Category</strong>: {{ portfolio_post.category }}</li>
-              <li><strong>Client</strong>: {{ portfolio_post.client }}</li>
+              <li><strong>Category</strong>: {{ portfolio_post.category|upper }}</li>
+              <li><strong>Client</strong>: {{ portfolio_post.client|upper }}</li>
               <li><strong>Project date</strong>: {{ portfolio_post.project_date }}</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              <li><strong>Project URL</strong>: <a target="_blank" href="{{ portfolio_post.project_url }}">{{ portfolio_post.project_url }}</a></li>
             </ul>
 
             <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              {{ portfolio_post.Discription|safe }}
             </p>
           </div>
 
