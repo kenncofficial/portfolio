@@ -75,6 +75,8 @@ class Portfolio_Post(models.Model):
 	project_date = models.DateField(auto_now_add=True)
 	Discription = RichTextField(blank=True, null=True)
 	image = CloudinaryField('image', null=True, blank=True)
+	image2 = CloudinaryField('image', null=True, blank=True)
+	image3 = CloudinaryField('image', null=True, blank=True)
 	project_url = models.URLField(max_length=255, default='non given')
 
 	def self(self):
