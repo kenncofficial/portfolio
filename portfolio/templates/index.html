@@ -6,16 +6,18 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kenn.c_official</title>
+  <title>kenncofficial</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  
+  <!-- Favicons -->
+  <link href="{% static 'portfolio/assets/img/favicon.png'%}" rel="icon">
+  <link href="{% static 'portfolio/assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'portfolio/assets/vendor/aos/aos.css'%}" rel="stylesheet">
   <link href="{% static 'portfolio/assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <link href="{% static 'portfolio/assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
   <link href="{% static 'portfolio/assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
@@ -26,8 +28,8 @@
   <link href="{% static 'portfolio/assets/css/style.css'%}" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: iPortfolio - v3.0.1
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Template Name: Folio - v4.7.0
+  * Template URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -35,246 +37,202 @@
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
   <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
 
-      <div class="profile">
-        <img src="{% static 'portfolio/assets/img/mee.jpg'%}" alt="" class="img-fluid rounded-circle">
-        {% for Home_Layout in Home_Layouts %}
-        <h1 class="text-light"><a>{{ Home_Layout.name }}</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a target="_blank" href="https://twitter.com/Kennc_official?s=09" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a target="_blank" href="https://www.facebook.com/coddedme/" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a target="_blank" href="https://instagram.com/kenn.c_official?igshid=j267hfc81jfl" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a target="_blank" href="https://github.com/kenncofficial" class="google-plus"><i class="bx bxl-github"></i></a>
-          <a target="_blank" href="https://www.linkedin.com/in/kenneth-chinedu-7aa442212" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-      </div>
-        {% endfor %}
-      <nav id="navbar" class="nav-menu navbar">
+      
+      <!-- Uncomment below if you prefer to use an text logo -->
+      <h1 class="logo"><a href="index.html">Kenn.C_Official</a></h1> 
+
+      <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link  scrollto" href="#journal">Resume</a></li>
+        
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
-      </nav><!-- .nav-menu -->
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
   </header><!-- End Header -->
-
 {% block content %}
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      {% for Home_Layout in Home_Layouts %}
-      <h1>{{ Home_Layout.name }}</h1>
-      {% endfor %}
-      <p>I'm <span class="typed" data-typed-items="a Web Developer, a Freelancer, an Entertainer"></span></p>
+  <div id="hero" class="home">
+
+    <div class="container">
+      <div class="hero-content">
+        <h1>I'm <span class="typed" data-typed-items="kenneth chinedu, a.k.a Kenn c official, a Developer, a Freelancer, an Entertainer"></span></h1>
+        <p>Developer, Freelancer, Entertainer</p>
+
+        <ul class="list-unstyled list-social">
+          <li><a href="https://www.facebook.com/coddedme/"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="https://twitter.com/Kennc_official?s=09"><i class="bi bi-twitter"></i></a></li>
+          <li><a href="https://instagram.com/kenncofficial?igshid=j267hfc81jfl"><i class="bi bi-instagram"></i></a></li>
+          <li><a href="https://github.com/kenncofficial"><i class="bi bi-github"></i></a></li>        
+          <li><a href="https://www.linkedin.com/in/kenneth-chinedu-7aa442212"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+      </div>
     </div>
-  </section><!-- End Hero -->
+  </div><!-- End Hero -->
 
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <div id="about" class="paddsection">
       <div class="container">
+        <div class="row justify-content-between">
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p>Learn more about me</p>
-        </div>
-
-        {% for About in Abouts %}
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="{% static 'portfolio/assets/img/mee.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>{{ About.title }}</h3>
-            <p class="font-italic">
-             {{ About.bio_1|safe }}
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{ About.birthday}}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{ About.website }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{ About.city }}, Nigeria</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email</strong> <span>{{ About.email }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{ About.freelance }}</span></li>
-                </ul>
+          <div class="col-lg-4 ">
+            <div class="div-img-bg">
+              <div class="about-img">
+                <img src="{% static 'portfolio/assets/img/me.png'%}" class="img-responsive" alt="me">
               </div>
             </div>
-            <p>
-              {{ About.bio_2|safe }}
-            </p>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="about-descr">
+
+              <p class="p-heading">I'm a Fullstack Developer from Nigeria, working in Web Development, creating both Frontend and Backend. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
+              <p class="separator">My Job is to build your website so that it is functional and user-friendly, at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I've worked on so many eye-catching projects</p>
+
+            </div>
+
           </div>
         </div>
-        {% endfor %}
       </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
+    </div><!-- End About Section -->
+    <!-- ======= Services Section ======= -->
+    <div id="services">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Facts</h2>
-          
-        </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Website Responsiveness</strong>(in %)</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> (Big projects)</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Support</strong>(in %)</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>Check my current skill set</p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-3" data-aos="fade-up">
-            <div class="card" style="width: 18rem;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">HTML</li>
-                <li class="list-group-item">CSS</li>
-                <li class="list-group-item">JAVASCRIPT</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">REACT.JS</li>
-              <li class="list-group-item">NODE.JS</li>
-            </ul>
-          </div>
-        </div>
-
-
-        <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">PYTHON(Django)</li>
-              <li class="list-group-item">AFFILATE MARKETING</li>
-              <li class="list-group-item">BLOGGING</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">TOUCH TYPING</li>
-              <li class="list-group-item">INTERNAL NEGOTIATION</li>
-              <li class="list-group-item">SOCIAL MEDIA MARKETING</li>
-            </ul>
-          </div>
-
-        </div>
+        <div class="services-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
 
            
+            <div class="swiper-slide">
+              <div class="services-block">
+                <i class="bi bi-card-checklist"></i>
+                <span>BRAND IDENTITY</span>
+                <p class="separator">I can make your brand stand out. My aim is to bring across your message and identity in the most creative way </p>
+              </div>
+            </div><!-- End testimonial item -->
 
+            <div class="swiper-slide">
+              <div class="services-block">
+                <i class="bi bi-bar-chart"></i>
+                <span>WEB DESIGNING</span>
+                <p class="separator">I Build functional and user-friendly and at the same time attractive Website.</p>
+              </div>
+            </div><!-- End testimonial item -->
 
+            <div class="swiper-slide">
+              <div class="services-block">
+                <i class="bi bi-binoculars"></i>
+                <span>FULLSTACK DEVELOPMENT</span>
+                <p class="separator">Using Frontend technologies and lots of Backend Frameworks, i build both simple and complex websites.</p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="services-block">
+                <i class="bi bi-brightness-high"></i>
+                <span>Analytics</span>
+                <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+              </div>
+            </div><!-- End testimonial item -->
 
           </div>
-
+          <div class="swiper-pagination"></div>
         </div>
 
       </div>
-    </section><!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
+    </div><!-- End Services Section -->
 
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>Check My Resume</p>
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg">
+  <div class="container">
+
+    <div class="section-title ">
+      <p class="p-heading" style="font-size: 40px;"><b>Skills</b></p>
+      <p>Check my current skill set</p>
+    </div>
+
+    <div class="row skills-content">
+
+      <div class="col-lg-3" data-aos="fade-up">
+        <div class="card" style="width: 18rem;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">HTML</li>
+            <li class="list-group-item">CSS</li>
+            <li class="list-group-item">JAVASCRIPT</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            {% for Resume in Resumes %}
-            <h3 class="resume-title">{{ Resume.title_tag }}</h3>
-            <div class="resume-item">
-              <h4>{{ Resume.title }}</h4>
-              <h5>{{ Resume.year }}</h5>
-              <p><em>{{ Resume.content|safe }}</em></p>
-              {% endfor %}
-            </div>
-          </div>
+      <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            {% for Experience in Experiences %}
-            <h3 class="resume-title">{{ Experience.title_tag }}</h3>
-            <div class="resume-item">
-              <h4>{{ Experience.title }}</h4>
-              <h5>{{ Experience.year }}</h5>
-              <p><em>{{ Experience.content|safe }}</em></p>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">REACT.JS</li>
+          <li class="list-group-item">NODE.JS</li>
+          <li class="list-group-item">DATABASE | POSTGRESQL</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">PYTHON | Django</li>
+          <li class="list-group-item">AFFILATE MARKETING</li>
+          <li class="list-group-item">BLOGGING</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">TOUCH TYPING</li>
+          <li class="list-group-item">INTERNAL NEGOTIATION</li>
+          <li class="list-group-item">SOCIAL MEDIA MARKETING</li>
+        </ul>
+      </div>
+
+    </div>
+
+       
+
+
 
       </div>
-    </section><!-- End Resume Section -->
+
+    </div>
+
+  </div>
+</section><!-- End Skills Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
+    <div id="portfolio" class="paddsection">
+
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>My Portfolio</h2>
+        </div>
+      </div>
+
       <div class="container">
 
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Take a look at my portfolio, see the projects i have created.</p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
+        <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
@@ -283,121 +241,166 @@
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            {% for Portfolio_Post in Portfolio_Posts %}
-            <div class="portfolio-wrap">
-              <img src="{{ Portfolio_Post.image.url }}" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                
-                <a href="{% url 'portfolio-details' Portfolio_Post.pk %}" title="More Details">Details<i class="bx bx-link"></i></a>
-              </div>
+        <div class="row portfolio-container">
+          {% for Portfolio_Post in Portfolio_Posts %}
+          <div class="col-lg-4 col-md-6 portfolio-item ">
+            <img src="{{ Portfolio_Post.image.url }}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>{{ Portfolio.name }}</h4>
+              <p>{{ Portfolio.category }}</p>
+              <a href="{{ Portfolio_Post.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'portfolio-details' Portfolio_Post.pk %}" class="details-link" title="More Details"><i class="bx bx-link"> Details</i></a>
             </div>
-            {% endfor %}
-
           </div>
-
+          {% endfor %}
+        
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    </div><!-- End Portfolio Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="journal" class="resume">
       <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>My Services</p>
+          <h3>Resume</h3>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="row">
-          {% for Service in Services %}
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">{{ Service.title }}</a></h4>
-            <p class="description">{{ Service.content|safe }}</p>
-          </div>
-          {% endfor %}
-        </div>
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Sumary</h3>
+            <div class="resume-item pb-0">
+              <h5>Kenneth Chinedu</h5>
+              <p><em>I'm an Innovative and deadline-driven Web Developer with 2+ years of experience designing and developing user-friendly projectd from initial concept to final.  i build both simple and complex websites.</em></p>
+              <ul>
+                <li> <a href=""><input class="btn btn-defeault btn-send" value="Hire mE"></a></li>
+                
+              </ul>
+            </div>
 
-      </div>
-    </section><!-- End Services Section -->
-
-    
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Contact Me</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>River State, Port Harcourt</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p><a href="mailto:kenncofficial@gmail.com?subject=EMail from kenncofficials website">kenncofficial@gmail.com</a></p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p><a href="tel:+2347057110490">+2347057110490</a></p>
-              </div>
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Python Programming</h4>
+              <h5>2018</h5>
+              <p><em>- Udemy, Online Bootcamp</em></p>
+            </div>
+            <div class="resume-item">
+              <h4>Front-End & Back-End Web Development</h4>
+              <h5>2019 - 2020</h5>
+              <p><em>- Udemy, Online Bootcamp</em></p>
 
               
             </div>
-
           </div>
-
-          
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Web Developer/Manager</h4>
+              <h5>2019 - Present</h5>
+              <p><em>Lagos, Nigeria</em></p>
+              <ul>
+                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>AMAZON AFFILIATE MARKETER</h4>
+              <h5>2020</h5>
+              <p><em>Worked as an affilite for Amazon</em></p>
+             
+            </div>
+          </div>
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="paddsection">
+      <div class="container">
+        <div class="contact-block1">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="contact-contact">
+
+                <h2 class="mb-30">GET IN TOUCH</h2>
+
+                <ul class="contact-details">
+                  <li><span>Port Harcourt</span></li>
+                  <li><span>River State, Nigeria</span></li>
+                  <li><span><a href="tel:+2347057110490">+2347057110490</a></span></li>
+                  <li><span><a href="mailto:kenncofficial@gmail.com?subject=EMail from kenncofficials website">kenncofficial@gmail.com</a></span></li>
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <form role="form" class="php-email-form">
+                <div class="row gy-3">
+
+                 
+
+                  <div class="mt-0">
+                    <a href="mailto:kenncofficial@gmail.com?subject=EMail from kenncofficials website"><input type="submit" class="btn btn-defeault btn-send" value="Send Email"></a>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
 
   </main><!-- End #main -->
 {% endblock %}
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <div id="footer" class="text-center">
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>kenn.c_official</span></strong>
+      <div class="socials-media text-center">
+
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/coddedme/"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="https://twitter.com/Kennc_official?s=09"><i class="bi bi-twitter"></i></a></li>
+          <li><a href="https://instagram.com/kenncofficial?igshid=j267hfc81jfl"><i class="bi bi-instagram"></i></a></li>
+          <li><a href="https://github.com/kenncofficial"><i class="bi bi-github"></i></a></li>        
+          <li><a href="https://www.linkedin.com/in/kenneth-chinedu-7aa442212"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+
       </div>
+
+      <p>&copy; Copyrights. All rights reserved.</p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ 
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
-         Designed by <a href=''>Kenn.c_official
+       
+        Designed by Kenncofficial
       </div>
+      <div class="credits" style="visibility: hidden;">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
+      -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+
     </div>
-  </footer><!-- End  Footer -->
+  </div><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'portfolio/assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'portfolio/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'portfolio/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
   <script src="{% static 'portfolio/assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
   <script src="{% static 'portfolio/assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
-  <script src="{% static 'portfolio/assets/vendor/purecounter/purecounter.js'%}"></script>
   <script src="{% static 'portfolio/assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
   <script src="{% static 'portfolio/assets/vendor/typed.js/typed.min.js'%}"></script>
-  <script src="{% static 'portfolio/assets/vendor/waypoints/noframework.waypoints.js'%}"></script>
+  <script src="{% static 'portfolio/assets/vendor/php-email-form/validate.js'%}"></script>
 
   <!-- Template Main JS File -->
   <script src="{% static 'portfolio/assets/js/main.js'%}"></script>
