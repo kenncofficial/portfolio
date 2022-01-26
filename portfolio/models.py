@@ -14,12 +14,11 @@ class Category(models.Model):
         return self.name
 
 
-
 class Portfolio_Post(models.Model):
 	name = models.CharField(max_length=255)
-	category = models.CharField(max_length=255, null=True)
 	client = models.CharField(max_length=255)
 	project_date = models.DateField(auto_now_add=True)
+	tools_used = models.CharField(max_length=255, null=True)
 	Discription = RichTextField(blank=True, null=True)
 	image = CloudinaryField('image', null=True, blank=True)
 	image2 = CloudinaryField('image', null=True, blank=True)

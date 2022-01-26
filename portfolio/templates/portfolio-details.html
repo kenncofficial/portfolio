@@ -11,7 +11,7 @@
           <h2>Portfolio Details</h2>
           <ol>
             <li><a href="{% url 'home' %}#home">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="{% url 'home' %}#portfolio">Portfolio</a></li>
             <li>Portfolio Details</li>
           </ol>
         </div>
@@ -54,6 +54,7 @@
                 <li><strong>Client</strong>: {{ portfolio_post.client|upper }}</li>
                 <li><strong>Project date</strong>:{{ portfolio_post.project_date }}</li>
                 <li><strong>Project URL</strong>: <a target="_blank" href="{{ portfolio_post.project_url }}">{{ portfolio_post.project_url }}</a></li>
+                <li><strong>Tools Used</strong>: </li>
               </ul>
             </div>
             <div class="portfolio-description">
