@@ -1,0 +1,35 @@
+{% extends 'blog-grid.html' %}
+{% load static %}
+{% block content %}
+
+
+
+ <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
+           <div class="form-group">
+            <form method="Post" class="oleez-comment-form">
+             
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="form-group col-12">
+                        <label for="message">*Update</label>
+                        {{ form_comment }}
+       
+                        {{ form.as_p }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-submit">Send</button>
+                    </div>
+                </div>
+            </form>
+            
+     
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+{% endblock %}

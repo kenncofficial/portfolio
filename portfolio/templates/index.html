@@ -46,7 +46,8 @@
 
       
       <!-- Uncomment below if you prefer to use an text logo -->
-      <h1 class="logo"><a href="index.html">Kenn.C_Official</a></h1> 
+      <a href="index.html"><img src="{% static 'blog/assets/images/KENCLOGO2.png'%}" alt="kenncofficial" class="img-fluid" style="height: 80px; width: 100px;"></a>
+      
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -54,8 +55,13 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link  scrollto" href="#journal">Resume</a></li>
-        
+          <li><a class="nav-link" href="{% url 'bloglist' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% if user.is_authenticated %}
+                    <li>
+                        <a class="nav-link scrollto" href="{% url 'account_logout' %}">Logout</a>
+                    </liclass=>
+                    {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

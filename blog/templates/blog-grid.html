@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kenncofficial</title>
+    <link rel="stylesheet" href="{% static 'blog/assets/vendors/animate.css/animate.min.css'%}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/style.css'%}">
+    <script src="{% static 'blog/assets/vendors/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'blog/assets/js/loader.js'%}"></script>
+</head>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+        .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 300px;
+        }
+        .card-header img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        }
+        .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 20px;
+        min-height: 250px;
+        }
+        .tag {
+        background-color: #ccc;
+        color: #fff;
+        border-radius: 50px;
+        font-size: 12px;
+        margin: 0;
+        padding: 2px 10px;
+        text-transform: uppercase;
+        }
+        .tag-teal {
+        background-color: #92d4e4;
+        }
+        .tag-purple {
+        background-color: #3d1d94;
+        }
+        .tag-pink {
+        background-color: #c62bcd;
+        }
+        .card-body h4 {
+        margin: 10px 0;
+        }
+        .card-body p {
+        font-size: 14px;
+        margin: 0 0 40px 0;
+        font-weight: 500;
+        color: rgb(70, 68, 68);
+        }
+        .user {
+        display: flex;
+        margin-top: auto;
+        }
+        .user img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: cover;
+        }
+        .user-info h5 {
+        margin: 0;
+        }
+        .user-info small {
+        color: #888785;
+        }
+        @media (max-width: 940px) {
+        .container {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+        }
+  
+  </style>
+<body>
+    <div class="oleez-loader"></div>
+    <header class="oleez-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html"><img src="{% static 'blog/assets/images/KENCLOGO2.png'%}" alt="Oleez" style='height:70px;'></a>
+            <ul class="nav nav-actions d-lg-none ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#!" data-toggle="searchModal">
+                        <img src="{% static 'blog/assets/images/search.svg'%}" alt="search">
+                    </a>
+                </li>
+                
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a class="nav-link dropdown-toggle" href="#!" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ENG</a>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="#!">ARB</a>
+                        <a class="dropdown-item" href="#!">FRE</a>
+                    </div>
+                </li>
+               
+            </ul>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav" aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="oleezMainNav">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#portfolio">Portfolio</a>  
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#journal">Resume</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+                        
+                    
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+                <ul class="navbar-nav d-none d-lg-flex">
+                    <li class="nav-item active">
+                        <a class="nav-link nav-link-btn" href="#!" data-toggle="searchModal">
+                            <img src="{% static 'blog/assets/images/search.svg'%}" alt="search">
+                        </a>
+                    </li>
+                   
+                   
+                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% block content %}
+    <main class="blog-grid-page">
+        <div class="container">
+            <h1 class="oleez-page-title wow fadeInUp">Blog</h1>
+            <div class="row">
+                {% for BlogPost in object_list %}
+                <div class="col-md-4">
+                    <div class="blog-post-card wow fadeInUp">
+                        <div class="blog-post-thumbnail-wrapper">
+                            <a href="{% url 'BlogPost-details' BlogPost.slug %}">
+                            <img src="{{ BlogPost.image.url }}" alt="blog"></a>
+                        </div>
+                        <p class="blog-post-date">{{ BlogPost.date_posted }} | {{ BlogPost.category|title }}</p>
+                        <a href="{% url 'BlogPost-details' BlogPost.slug %}" style="color:black;">
+                        <h5 class="blog-post-title">{{ BlogPost.title|title }}</h5></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="row">
+                <div class="col-12 pb-5 mb-5">
+                        <nav class="oleez-pagination d-flex align-items-center justify-content-center wow fadeInUp">
+                            {% if is_paginated %}
+                            {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.has_previous_page_number }}" class="active">01</a>
+                            {% endif %}
+			               
+                            {% if page_obj.has_next %}
+                            <a href="#!" class="next">&rarr;</a>
+                            {% endif %}     
+			                {% endif %}
+                        </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
+   <div id="footer" class="text-center">
+    <div class="container">
+      <div class="socials-media text-center">
+
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/coddedme/"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="https://twitter.com/Kennc_official?s=09"><i class="bi bi-twitter"></i></a></li>
+          <li><a href="https://instagram.com/kenncofficial?igshid=j267hfc81jfl"><i class="bi bi-instagram"></i></a></li>
+          <li><a href="https://github.com/kenncofficial"><i class="bi bi-github"></i></a></li>        
+          <li><a href="https://www.linkedin.com/in/kenneth-chinedu-7aa442212"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+
+      </div>
+
+      <p>&copy; Copyrights. All rights reserved.</p>
+      <div class="credits">
+       
+        Designed by Kenncofficial
+      </div>
+      <div class="credits" style="visibility: hidden;">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
+      -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+
+    </div>
+  </div><!-- End Footer -->
+
+    
+        <!-- Modals -->
+        <!-- Off canvas social menu -->
+        <nav id="offCanvasMenu" class="off-canvas-menu">
+            <button type="button" class="close" aria-label="Close" data-dismiss="offCanvasMenu">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <ul class="oleez-social-menu">
+                <li>
+                    <a href="#!" class="oleez-social-menu-link">Facebook</a>
+                </li>
+                <li>
+                    <a href="#!" class="oleez-social-menu-link">Instagram</a>
+                </li>
+                <li>
+                    <a href="#!" class="oleez-social-menu-link">Behance</a>
+                </li>
+                <li>
+                    <a href="#!" class="oleez-social-menu-link">Dribbble</a>
+                </li>
+                <li>
+                    <a href="#!" class="oleez-social-menu-link">Email</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Full screen search box -->
+        <div id="searchModal" class="search-modal">
+            <button type="button" class="close" aria-label="Close" data-dismiss="searchModal">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <form action="index.html" method="get" class="oleez-overlay-search-form">
+                <label for="search" class="sr-only">Search</label>
+                <input type="search" class="oleez-overlay-search-input" id="search" name="search" placeholder="Search here">
+            </form>
+        </div>
+        <script src="{% static 'blog/assets/vendors/popper.js/popper.min.js'%}"></script>
+        <script src="{% static 'blog/assets/vendors/wowjs/wow.min.js'%}"></script>
+        <script src="{% static 'blog/assets/vendors/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+        <script src="{% static 'blog/assets/vendors/slick-carousel/slick.min.js'%}"></script>
+        <script src="{% static 'blog/assets/js/main.js'%}"></script>
+        <script>
+            new WOW().init();
+        </script>
+    </body>
+
+    </html>

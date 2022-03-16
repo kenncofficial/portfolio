@@ -1,0 +1,42 @@
+{% extends 'blog-grid.html' %}
+{% load static %}
+{% block content %}
+    <main class="blog-grid-page">
+        <div class="container">
+            <h1 class="oleez-page-title wow fadeInUp">Blog Tag:</h1>
+            <a class="post-tag"><h6>{{tag.slug|upper}}</h8></a>
+            
+            <div class="row">
+                {% for BlogPost in posts %}
+                <div class="col-md-4">
+                    <div class="blog-post-card wow fadeInUp">
+                        <div class="blog-post-thumbnail-wrapper">
+                            <a href="{% url 'BlogPost-details' BlogPost.slug %}">
+                            <img src="{{ BlogPost.image.url }}" alt="blog-image"></a>
+                        </div>
+                        <p class="blog-post-date"><span>{{ BlogPost.date_posted }}  |  <strong> {{ BlogPost.author|upper }}</strong></span></p>
+                        <a href="{% url 'BlogPost-details' BlogPost.slug %}"><h5 class="blog-post-title">{{ BlogPost.snippet }}</h5></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="row">
+                <div class="col-12 pb-5 mb-5">
+                        <nav class="oleez-pagination d-flex align-items-center justify-content-center wow fadeInUp">
+                            {% if is_paginated %}
+                            {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.has_previous_page_number }}" class="active">01</a>
+                            {% endif %}
+			               
+                            {% if page_obj.has_next %}
+                            <a href="#!" class="next">&rarr;</a>
+                            {% endif %}     
+			                {% endif %}
+                        </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
+   

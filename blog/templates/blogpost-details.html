@@ -1,0 +1,229 @@
+{% extends 'blog-grid.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css">
+      
+    .comment {
+        overflow: hidden;
+        padding: 0 0 1em;
+        border-bottom: 1px solid #ddd;
+        margin: 0 0 1em;
+        *zoom: 1;
+    }
+
+    .comment-img {
+        float: left;
+        margin-right: 33px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .comment-img img {
+        display: block;
+    }
+
+    .comment-body {
+        overflow: hidden;
+    }
+
+    .comment .text {
+        padding: 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        background: #fff;
+    }
+
+    .comment .text p:last-child {
+        margin: 0;
+    }
+
+    .comment .attribution {
+        margin: 0.5em 0 0;
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* Decoration */
+
+    .comments,
+    .comment {
+        position: relative;
+    }
+
+    .comments:before,
+    .comment:before,
+    .comment .text:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 65px;
+    }
+
+    .comments:before {
+        width: 3px;
+        top: -20px;
+        bottom: -20px;
+        background: rgba(0,0,0,0.1);
+    }
+
+    .comment:before {
+        width: 9px;
+        height: 9px;
+        border: 3px solid #fff;
+        border-radius: 100px;
+        margin: 16px 0 0 -6px;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+        background: #ccc;
+    }
+
+    .comment:hover:before {
+        background: orange;
+    }
+
+    .comment .text:before {
+        top: 18px;
+        left: 78px;
+        width: 9px;
+        height: 9px;
+        border-width: 0 0 1px 1px;
+        border-style: solid;
+        border-color: #e5e5e5;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+    }​
+</style>
+    <main class="blog-post-single">
+        <div class="container">
+            <h1 class="post-title wow fadeInUp">Blog Details</h1>
+            <div class="row">
+                <div class="col-md-8 blog-post-wrapper">
+                    <div class="post-header wow fadeInUp">
+                        <img src="{{ blogpost.image.url }}" alt="blog post" class="post-featured-image">
+                        <p class="post-date">{{ blogpost.date_posted }} | {{ blogpost.category|title }}</p>
+                    </div>
+                    <div class="post-content wow fadeInUp">
+                        <h4>{{ blogpost.title }}</h4>
+                        <p>{{ blogpost.content1|safe }}</p>
+                        
+                        <blockquote class="blockquote wow fadeInUp">
+                            <p>{{ blogpost.blog_quote }}</p>
+                        </blockquote>
+                        
+                        <p>{{ blogpost.content2|safe }}</p>
+                        
+                    </div>
+                    <div class="post-tags wow fadeInUp">
+                        {% for related_items in blogpost.tags.all %}
+                        <a href="{% url 'tagged' related_items.slug %}" class="post-tag">{{ related_items|upper  }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="blog-comments">
+  
+  {% if blogpost.comments.all %}
+  <h3 class="title"><strong>{{ blogpost.comments.all|length }} comment{{ object.number_of_comments|pluralize }}</strong></h3>
+   
+
+       {% for BlogComment in blogpost.comments.all %}
+        <article class="comment">
+           <a class="comment-img" href="#non">
+             <img src="https://cdn-icons-png.flaticon.com/128/747/747376.png" alt="" width="50" height="50">
+           </a>
+           <div class="comment-body">
+             <div class="text">
+               <p>{{ BlogComment.content|safe }}</p>
+             </div>
+             <p class="attribution">by <a href="#non">{{ BlogComment.author }}</a> {{ BlogComment.date_posted }} 
+
+               [
+             {% if user.id == BlogComment.author.id %}
+
+             <a href="{% url 'Update_comment' BlogComment.pk %}" class="trigger-btn">(Edit)</a>
+             <a href="{% url 'Delete_comment' BlogComment.pk %}" class="trigger-btn">(Delete)</a>]
+
+             {% endif %}
+
+             </p>
+           </div>
+         </article>
+       {% endfor %}
+       {% else %}
+       <strong class='text-secondary'>No comments yet</strong>
+     {% endif %}
+      {% if user.is_authenticated %} 
+     <div class="comment-section wow fadeInUp">
+         <h5 class="section-title">Leave a Reply</h5>
+         <form method="Post" class="oleez-comment-form">
+             
+             <div class="row">
+                 {% csrf_token %}
+                 <div class="form-group col-12">
+                     <label for="message">*Message</label>
+                     {{ form_comment }}
+    
+                     {{ form.as_p }}
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-12">
+                     <button type="submit" class="btn btn-submit">Send</button>
+                 </div>
+             </div>
+         </form>
+     </div>
+     {% else %}
+     <a class="btn btn-outline-info" href="{% url 'account_login' %}?next={{request.path}}">Log in to add a comment!</a><br>
+     {% endif %}
+    
+</div><!-- End blog comments --> 
+                  
+                  
+                </div>
+                <div class="col-md-4">
+                    <div class="sidebar-widget wow fadeInUp">
+                        <h5 class="widget-title">Tags</h5>
+                        <div class="widget-content">
+                            {% for related_items in blogpost.tags.all %}
+                            <a href="{% url 'tagged' related_items.slug %}" class="post-tag">{{ related_items|upper  }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="sidebar-widget wow fadeInUp">
+                        <h5 class="widget-title">Share</h5>
+                        <div class="widget-content">
+                            <nav class="social-links">
+                                <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+                             
+                            </nav>
+                        </div>
+                    </div>
+                   
+                    <div class="sidebar-widget wow fadeInUp">
+                        <h5 class="widget-title">Categories</h5>
+                        <div class="widget-content">
+                            <ul class="category-list">
+                                {% for item in cat_menu %}
+                                <li><a href="{% url 'category_detail' item %}">{{ item|title }}</a></li>
+                                {% endfor %}    
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+  {% endblock %}
