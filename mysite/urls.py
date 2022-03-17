@@ -23,7 +23,8 @@ urlpatterns = [
     path('', include('portfolio.urls')),
     path('blog/', include('blog.urls')),
     path('accounts/', include('allauth.urls')),
-
+    path('maison_auth/', include('django.contrib.auth.urls')),
+    path('maison_auth/', include('maison_auth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

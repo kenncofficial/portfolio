@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'crispy_forms',
+    'maison_auth',
 ]
 SITE_ID = 2
 MIDDLEWARE = [
@@ -199,5 +200,8 @@ cloudinary.config(
   api_secret = "s4XgQlu_8ZmVb1HiUZYReJ4yhEc",
 )
 
+
+LOGIN_REDIRECT_URL = 'bloglist'
+LOGOUT_REDIRECT_URL = 'home'
 
 django_heroku.settings(locals())

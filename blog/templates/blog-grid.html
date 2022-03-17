@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kenncofficial</title>
+    <title>{% block title %}Kenncofficial Blog{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'blog/assets/vendors/animate.css/animate.min.css'%}">
     <link rel="stylesheet" href="{% static 'blog/assets/css/style.css'%}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,7 +139,11 @@
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                     {% endif %}
                     

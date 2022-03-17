@@ -62,8 +62,12 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% if user.is_authenticated %}
                     <li>
-                        <a class="nav-link scrollto" href="{% url 'account_logout' %}">Logout</a>
-                    </liclass=>
+                        <a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                      <a class="nav-link scrollto" href="{% url 'login' %}">Login</a>
+                  </li>
                     {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

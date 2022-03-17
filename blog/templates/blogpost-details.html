@@ -1,7 +1,10 @@
 {% extends 'blog-grid.html' %}
 {% load static %}
+{% block title %}{{ blogpost.title }}{% endblock %}
 {% block content %}
+<meta name="description" content="{{ blogpost.snippet}}">
 
+</head>
 <style type="text/css">
       
     .comment {
