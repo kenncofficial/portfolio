@@ -9,8 +9,12 @@
     <title>Kenncofficial</title>
     <link rel="stylesheet" href="{% static 'blog/assets/vendors/animate.css/animate.min.css'%}">
     <link rel="stylesheet" href="{% static 'blog/assets/css/style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
     <script src="{% static 'blog/assets/vendors/jquery/jquery.min.js'%}"></script>
     <script src="{% static 'blog/assets/js/loader.js'%}"></script>
+
 </head>
 
 <style>
@@ -91,7 +95,7 @@
     <div class="oleez-loader"></div>
     <header class="oleez-header">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html"><img src="{% static 'blog/assets/images/KENCLOGO2.png'%}" alt="Oleez" style='height:70px;'></a>
+            <a href="{% url 'home' %}" style="font-family: 'Inspiration', cursive; color: black;"><h1 ><strong>Kenncofficial</strong></h1></a>
             <ul class="nav nav-actions d-lg-none ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#!" data-toggle="searchModal">

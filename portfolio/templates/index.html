@@ -30,6 +30,9 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'portfolio/assets/css/style.css'%}" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Folio - v4.7.0
   * Template URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
@@ -46,7 +49,7 @@
 
       
       <!-- Uncomment below if you prefer to use an text logo -->
-      <a href="index.html"><img src="{% static 'blog/assets/images/KENCLOGO2.png'%}" alt="kenncofficial" class="img-fluid" style="height: 80px; width: 100px;"></a>
+      <a href="{% url 'home' %}" style="font-family: 'Inspiration', cursive;"><h1><strong>Kenncofficial</strong></h1></a>
       
 
       <nav id="navbar" class="navbar">
