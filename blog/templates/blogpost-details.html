@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ blogpost.title }}{% endblock %}
 {% block content %}
-<meta name="description" content="{{ blogpost.snippet}}">
+<meta name="description" content="{{ blogpost.snippet }}">
 
 </head>
 <style type="text/css">
@@ -178,7 +178,7 @@
          </form>
      </div>
      {% else %}
-     <a class="btn btn-outline-info" href="{% url 'account_login' %}?next={{request.path}}">Log in to add a comment!</a><br>
+     <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment!</a><br>
      {% endif %}
     
 </div><!-- End blog comments --> 
